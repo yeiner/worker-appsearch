@@ -5,8 +5,10 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
+requests = "*"
 
 [packages]
+elastic-app-search = "*"
 
 [requires]
 python_version = "3.5"
