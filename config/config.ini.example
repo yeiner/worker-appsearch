@@ -1,0 +1,14 @@
+[DEFAULT]
+BEARER = bearer-app-search
+HOST_APPSEARCH = host-app-search
+HOST_IDENTIFIER =  host_identifier
+
+[TESTING]
+BEARER = bearer-app-search
+HOST_APPSEARCH = host-app-search
+HOST_IDENTIFIER =  host_identifier
+
+[PRODUCTION]
+BEARER = bearer-app-search
+HOST_APPSEARCH = host-app-search
+HOST_IDENTIFIER =  host_identifier

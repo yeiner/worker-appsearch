@@ -5,10 +5,12 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
-requests = "*"
+autopep8 = "*"
 
 [packages]
 elastic-app-search = "*"
+requests = "*"
+docopt = "*"
 
 [requires]
 python_version = "3.5"
