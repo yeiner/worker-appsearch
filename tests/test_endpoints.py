@@ -1,8 +1,8 @@
 import pytest
 import requests 
 
-url = 'https://host-979tym.api.swiftype.com'
-header = {'Authorization': 'Bearer private-xe2444z6g5jmvnevvyzkbkdv'}
+url = 'https://host-2je4fy.api.swiftype.com'
+header = {'Authorization': 'Bearer private-xnv4gm2rwyhxhbzzba8y827o'}
 engine = 'loe-promotions'
 
 def test_conection_list_documents():

@@ -1,12 +1,15 @@
 import configparser
-from elastic_app_search import Client 
+from elastic_app_search import Client
+import requests
+import json
+import pdb
 
 #config = configparser.ConfigParser()
 #config.read('../config/config.ini')
 
 #host_identifier = config['DEFAULT']['HOST_IDENTIFIER']
-host_identifier = 'host-979tym'
-api_key = 'private-xe2444z6g5jmvnevvyzkbkdv'
+host_identifier = 'host-2je4fy'
+api_key = 'private-xnv4gm2rwyhxhbzzba8y827o'
 #api_key = config['DEFAULT']['BEARER']
 engine_name = 'loe-promotions'
 
@@ -16,32 +19,31 @@ class Documents():
     def create_document():
 
         client = Client(host_identifier, api_key)
-        document = {
-            "name": "test worker by",
-            "id": 1217,
-            "logo_premium": "http://cys.loe-seasons.local/promotion/1.jpg",
-            "initial_price": "100000",
-            "final_price": "50000",
-            "discount": "50",
-            "src_id": 1,
-            "visibility": 1,
-            "authorized": 1,
-            "url": "http://cys.loe-seasons.local/promotion/1",
-            "currency": "$",
-            "featured": 0,
-            "events_name" : ['ciberdays', 'travelsale'],
-            "events_prefix" : ['cyl', 'tyl'],
-            "categories_name" :  ['jueguetes', 'tecnologia'],
-            "categories_id" : ['45', '78'],
-            "sponsored_categories_name" : ['jasson brand', 'test brand'],
-            "sponsored_categories_id" : ['78', '89'],
-            "brand_id": 10,
-            "brand_name": "jasson branc"
-        }
+        r = requests.get('https://api.myjson.com/bins/11s4jg')
+        data = r.json()
 
-        response = client.index_document(engine_name, document)
-        print('Created docuemnt')
+        response = client.index_documents(engine_name, data)
+        print('Created docuemnts')
         print(response)
+    
+    def get_dummy():
+        r = requests.get('https://api.myjson.com/bins/11s4jg')
+        data = r.json()
+        with open('data.json', 'w') as f:
+            json.dump(data, f)
+    
+    def delete_documents():
+        client = Client(host_identifier, api_key)
+        """Get documents """
+        documents = client.list_documents(engine_name)
+        """ Iteration ids """
+        ids = [elment['id'] for elment in documents['results']]
+        print(ids)
+        """ Delete docuemnts """
+        response = client.destroy_documents(engine_name, ids)
+        print('delete docuemnt')
+        print(response)
+
 
 
 if __name__ == '__main__':
