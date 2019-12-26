@@ -1,7 +1,7 @@
 """Ejecutar comandos.
 
 Usage:
-    setup.py documents (delete | create | dump)
+    setup.py documents (--delete | --create | --dump)
 
 Options:
     -h --help                           Muestra esta información.
@@ -17,6 +17,7 @@ import os
 
 def main():
     arguments = docopt(__doc__, version='Loe 2019 1.0')
+    print(arguments)
     for key in arguments:
         if key[0] != '-' and arguments[key] == True:
             start_time = time.time()
